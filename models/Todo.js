@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("../config/connect_db.js");
 
 const todoSchema = new mongoose.Schema({
     taskName: {
@@ -7,6 +7,7 @@ const todoSchema = new mongoose.Schema({
     },
 });
 
-const todo=mongoose.model('Todo', todoSchema);
+const todo = mongoose.model('Todo', todoSchema);
+console.log('todo model created');
 
-module.exports=todo;
+module.exports = todo;
