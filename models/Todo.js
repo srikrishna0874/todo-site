@@ -1,4 +1,4 @@
-const mongoose = require("../config/connect_db.js");
+const mongoose = require("mongoose");
 
 const todoSchema = new mongoose.Schema({
     taskName: {
