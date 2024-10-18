@@ -4,7 +4,19 @@ const app = express();
 const path = require('path');
 const todo_model = require('./models/Todo.js');
 
+async function getAllTasks() {
+    try {
+        const allTodos = await todo_model.find({});
+        console.log('all todos are ', allTodos);
+        return allTodos;
+    }
+    catch (e) {
+        console.log(e);
+        return {};
+    }
+}
 
+app.set("view engine", "ejs");
 
 app.use("/public", express.static("public"));
 
@@ -20,8 +32,8 @@ app.listen(3000, () => {
     console.log('server is running');
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+app.get('/', async (req, res) => {
+    res.render('index.ejs', { todoTasks: await getAllTasks() });
 });
 
 app.post('/add_task', async (req, res) => {
@@ -42,24 +54,25 @@ app.post('/edit_task', async (req, res) => {
 
 app.post('/delete_task', async (req, res) => {
     try {
-        const task=re.body['Edit Task'];
+        const task = req.body['Edit Task'];
+        await todo_model.findByIdAndUpdate(id, { task }, { new: true }).then((res) => {
+            console.log('task edited');
+            res.redirect('/');
+
+        }).catch((err) => {
+            console.log('cant update task');
+        });
+
     }
     catch (e) {
         console.log(e);
-        
+
     }
 });
 
 app.get('/get_tasks', async (req, res) => {
-    try {
-        const allTodos = await todo_model.find({});
-        console.log('all todos are ', allTodos);
-        res.status(200).json(allTodos);
-    }
-    catch (e) {
-        console.log(e);
-        res.status(500).json({ error: 'An error occurred while fetching todos' });
-    }
+    const allTodos = getAllTasks();
+    res.status(200).json(allTodos);
 
 });
 

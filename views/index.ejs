@@ -19,21 +19,14 @@
             <button><i class="fas fa-plus"></i></button>
         </form>
         <ul>
-            <li class="todo-item">
-                dddv
-            </li>
-            <li class="todo-item">
-               cvxcv
-            </li>
-            <li class="todo-item">
-                cvxcv
-            </li>
-            <li class="todo-item">
-                cvxcv
-            </li>
-            <li class="todo-item">
-                cvxcv
-            </li>
+            <% todoTasks.forEach(details=> { %>
+                <li>
+                    <div class="todo-item">
+                        <div class="task-name"><%= details.taskName %></div>
+                        
+                    </div>
+                </li>
+                <% }); %> 
         </ul>
     </div>
 </body>
