@@ -48,11 +48,11 @@ app.post('/add_task', async (req, res) => {
 });
 
 
-app.post('/edit_task', async (req, res) => {
+app.post('/edit_task/:id', async (req, res) => {
 
 });
 
-app.post('/delete_task', async (req, res) => {
+app.post('/delete_task/:id', async (req, res) => {
     try {
         const task = req.body['Edit Task'];
         await todo_model.findByIdAndUpdate(id, { task }, { new: true }).then((res) => {

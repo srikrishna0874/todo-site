@@ -21,10 +21,9 @@
         <ul>
             <% todoTasks.forEach(details=> { %>
                 <li class="todo-item">
+                    
+                    <input class="task-name" type="text" value="<%= details.taskName %>">
 
-                    <div class="task-name">
-                        <%= details.taskName %>
-                    </div>
                     <div class="todo-item-buttons">
                         <a href="/edit_task"><i class="fa fa-edit"></i></a>
                         <a href="/delete_task"><i class="fa fa-trash"></i></a>

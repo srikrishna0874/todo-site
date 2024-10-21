@@ -2,9 +2,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-family: 'Candal', sans-serif;
     background-color: rgb(132, 203, 27);
-    overflow: hidden;
     height: 100vh;
 }
 
@@ -23,7 +23,7 @@ h1 {
     align-items: center;
     background-color: green;
     border-radius: 10px;
-
+    height: 50%;
 }
 
 form {
@@ -33,7 +33,7 @@ form {
 }
 
 
-input {
+#addTask {
     width: 40vw;
     height: 5vh;
     border: none;
@@ -54,7 +54,8 @@ input :focus {
     border-radius: 50%;
     background-color: orangered;
     color: white;
-    margin-left: 30px;
+    margin-left: 20px;
+    border: none;
 }
 
 .todo-form button:hover {
@@ -70,21 +71,32 @@ input :focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    height: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.todo-div .todo-item {
+.todo-div ul::-webkit-scrollbar {
+    display: none;
+}
+
+.todo-div ul li:nth-child(1) {
+    margin-top: 10px;
+}
+
+.todo-div ul li,
+.task-name input {
     width: 50vw;
-    height: 50px;
+    height: 150px;
     display: flex;
     align-items: center;
-    justify-content: left;
-    color: black;
+    min-height: 50px;
     padding: 0px 10px;
-    border-radius: 10px;
-    background-color: rgb(0,0,0,0.3);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-bottom: 1px solid #ddd;
     margin: 5px;
-    
+
 }
 
 .todo-item .task-name {
@@ -93,21 +105,29 @@ input :focus {
     font-weight: bold;
     font-family: 'Candal', sans-serif;
     font-size: 20px;
-   
+    margin-right: 8px;
+
+
 }
 
 .todo-item .fa-edit {
     color: greenyellow;
-    
-    
+
+
 }
 
 .todo-item .fa-trash {
     color: red;
     margin-left: 10px;
-    
+
 }
 
 i {
     font-size: 20px;
+}
+
+.task-name input {
+    background-color: rgb(0, 0, 0, 0.3);
+    color: white;
+
 }
