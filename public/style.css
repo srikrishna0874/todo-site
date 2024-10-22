@@ -23,7 +23,7 @@ h1 {
     align-items: center;
     background-color: green;
     border-radius: 10px;
-    height: 50%;
+    height: 60%;
 }
 
 form {
@@ -74,23 +74,22 @@ input :focus {
     height: 50%;
     overflow-y: auto;
     overflow-x: hidden;
+    border: 2px solid greenyellow;
+    padding: 40px 0px;
+    border-radius: 10px;
+
 }
 
 .todo-div ul::-webkit-scrollbar {
     display: none;
 }
 
-.todo-div ul li:nth-child(1) {
-    margin-top: 10px;
-}
 
-.todo-div ul li,
-.task-name input {
-    width: 50vw;
-    height: 150px;
+.todo-div ul li {
+    width: 55vw;
     display: flex;
     align-items: center;
-    min-height: 50px;
+    min-height: 55px;
     padding: 0px 10px;
     border-radius: 8px;
     background-color: rgb(0, 0, 0, 0.3);
@@ -99,21 +98,48 @@ input :focus {
 
 }
 
-.todo-item .task-name {
+.todo-item .task-name-input {
     flex-grow: 1;
-    color: white;
+    color: black;
+    height: 40px;
     font-weight: bold;
     font-family: 'Candal', sans-serif;
     font-size: 20px;
     margin-right: 8px;
-
+    border-radius: 5px;
+    padding: 0px 10px;
+    border: none;
 
 }
 
-.todo-item .fa-edit {
+.task-input-buttons button {
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.task-input-buttons .edit-submit-button {
+    background-color: greenyellow;
+}
+
+.task-input-buttons .cancel-button {
+    background-color: red;
+    color: white;
+}
+
+.task-input-buttons .cancel-button:hover {
+    background-color: white;
+    color: red;
+    transition: 0.3s ease-in-out;
+}
+
+.task-input-buttons .edit-submit-button:hover {
+    background-color: black;
     color: greenyellow;
-
-
+    transition: 0.3s ease-in-out;
 }
 
 .todo-item .fa-trash {
@@ -122,12 +148,12 @@ input :focus {
 
 }
 
+.todo-item .fa-edit {
+    color: greenyellow;
+    margin-left: 10px;
+}
+
 i {
     font-size: 20px;
 }
 
-.task-name input {
-    background-color: rgb(0, 0, 0, 0.3);
-    color: white;
-
-}

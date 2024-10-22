@@ -19,20 +19,27 @@
             <button><i class="fas fa-plus"></i></button>
         </form>
         <ul>
-            <% todoTasks.forEach(details=> { %>
+            <% todoTasks.forEach((details,index)=> { %>
                 <li class="todo-item">
-                    
-                    <input class="task-name" type="text" value="<%= details.taskName %>">
+                    <h3 class="task-name"></h3>
+                    <%= details.taskName %>
+                        <input class="task-name-input" type="text" value="<%= details.taskName %>">
 
-                    <div class="todo-item-buttons">
-                        <a href="/edit_task"><i class="fa fa-edit"></i></a>
-                        <a href="/delete_task"><i class="fa fa-trash"></i></a>
+                        <div class="task-input-buttons">
+                            <button class="edit-submit-button" onclick="editTask()">SUBMIT</button>
+                            <button class="cancel-button">CANCEL</button>
 
-                    </div>
+                        </div>
+
+                        <div class="todo-item-buttons">
+                            <a href="/edit_task"><i class="fa fa-edit"></i></a>
+                            <a href="/delete_task"><i class="fa fa-trash"></i></a>
+                        </div>
                 </li>
                 <% }); %>
         </ul>
     </div>
+    <script src="/public/script.js"></script>
 </body>
 
 </html>
